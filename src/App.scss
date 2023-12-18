@@ -1,0 +1,226 @@
+@import "./constants.scss";
+
+.nav {
+  display: flex;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  padding: 1em 4em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  width: 100px;
+  //color filter
+  filter: brightness(0) saturate(100%) invert(86%) sepia(42%) saturate(429%) hue-rotate(305deg) brightness(104%) contrast(104%);
+
+  &:hover {
+    filter: none;
+  }
+} 
+
+.nav__items {
+  display: flex;
+  gap: 4em;
+  color: $material-a1-200;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-regular {
+  color: $material-a1-200;
+  font-family: 'Montserrat', sans-serif;
+  font-size: min(16pt, 4vw);
+}
+
+.intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("C:/Users/rafee/Downloads/Testing/rgb-guide/public/ws2812b/wallpaper-top.webp");
+  background-size: 150%;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  animation: wallpaper-in-top 1s cubic-bezier(.33,.55,.5,.99);
+  overflow: hidden;
+}
+
+
+.intro {
+  background-image: url("C:/Users/rafee/Downloads/Testing/rgb-guide/public/ws2812b/wallpaper-ic.webp");
+  background-color: $material-n2-900;
+  background-size: 150%;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  animation: wallpaper-in-side 1s cubic-bezier(.33,.55,.5,.99);
+  overflow: hidden;
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("C:/Users/rafee/Downloads/Testing/rgb-guide/public/ws2812b/wallpaper-pins.webp");
+  background-size: 150%;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  animation: wallpaper-in-bottom 1s cubic-bezier(.33,.55,.5,.99);
+  overflow: hidden;
+}
+
+@keyframes wallpaper-in-top {
+  0% {
+    background-position-y: 100%;
+  }
+  100% {
+    background-position-y: center;
+  }
+}
+@keyframes wallpaper-in-side {
+  0% {
+    background-position-x: 75%;
+  }
+  100% {
+    background-position-x: center;
+  }
+}
+@keyframes wallpaper-in-bottom {
+  0% {
+    background-position-y: 0%;
+  }
+  100% {
+    background-position-y: center;
+  }
+}
+
+.intro__title {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+}
+
+h2 {
+  font-family: 'Comfortaa', sans-serif;
+  letter-spacing: -1px;
+  font-size: min(22pt, 5vw);
+  font-weight: lighter;
+}
+
+h2::after {
+  display: block;
+  content: "";
+  width: 1em;
+  height: 4px;
+  margin-top: 0.5em;
+  background-color: $material-a1-800;
+  justify-self: center;
+}
+
+.intro__title_subtitle {
+  color: $material-a1-200;
+  margin-top: 2em;
+}
+
+.intro__title__title {
+  &::before {
+    display: block;
+    content: "";
+    height: 4px;
+    margin-top: 16px;
+    background-color: $material-a1-200;
+    width: 0%;
+    animation: line_expand 1s 1s forwards cubic-bezier(1,0,.5,1);
+  }
+  background: linear-gradient(90deg, rgba(255,128,128,1) 0%, rgba(255,255,128,1) 25%, rgba(128,255,128,1) 50%, rgba(128,255,255,1) 75%, rgba(0,128,255,1) 100%);
+  background-clip: text;
+  background-size: 400% 100%;
+  font-family: 'Cascadia Code', sans-serif;
+  font-weight: bolder;
+  font-size: min(120pt, 20vw);
+  color: #0000;
+}
+
+.typed-out {
+  overflow: hidden;
+  width: 0;
+  animation: typewriter 1s steps(4, end) forwards, rainbow_animation 6s ease-in-out infinite;
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes line_expand {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes rainbow_animation {
+  0%, 100% {
+      background-position: 0 0;
+  }
+
+  50% {
+      background-position: 100% 0;
+  }
+}
+
+.rgb-vs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $material-n2-200;
+}
+
+.rgb-vs__content {
+  width: 80vw;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "text visual";
+  grid-template-columns: 2fr 1fr;
+  gap: 4em 2em;
+  justify-items: center;
+}
+
+.rgb-vs__h2 {
+  grid-area: header;
+  color: $material-a1-800;
+}
+
+.rgb-vs__content__text {
+  grid-area: text;
+  color: $material-a1-600;
+}
+
+.rgb-vs__content__visual {
+  grid-area: visual;  
+}
